@@ -36,34 +36,25 @@ function ResetBtn() {
 }
 
 function CopyHEX() {
-    // Get the text content of the colorCode element
-    let copyHexCode = colorCode.innerHTML;
-
-
-    // Create a temporary input element
-    const input = document.createElement('input');
-    input.value = copyHexCode;
-
-
-    // Append the input element to the body
-    document.body.appendChild(input);
-
-
-    // Select the text in the input element
-    input.select();
-
-
-     // Copy the selected text to the clipboard
-    document.execCommand('copy');
-
-
     
-    // Remove the temporary input element
-    document.body.removeChild(input);
+    const copyHexCode = color_Box;
+    const Input = document.createElement('input');
+    document.body.appendChild(Input);
+    Input.value = copyHexCode;
+    Input.seect();
+    document.execCommand('copy');
+    document.body.removeChild(Input);
 
-    alert('Hex code copied to clipboard' + copyHexCode)
+    alert(`Color copied to clipboard ${copyHexCode}`)
 }
 
 function RGB() {
-    
+    const colorText = color_Box.style.backgroundColor;
+    const tempInput = document.createElement('input');
+    document.body.appendChild(tempInput);
+    tempInput.value = colorText;
+    tempInput.select();
+    document.execCommand('copy')
+    document.body.removeChild(tempInput);
+    alert(`Color copied to clipboard ${colorText}`)
 }
